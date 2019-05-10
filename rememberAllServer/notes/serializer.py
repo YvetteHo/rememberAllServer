@@ -5,7 +5,7 @@ from .models import Note, User, File
 class NoteSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Note
-        fields = ('id', 'name', 'time', 'noteType', 'noteContent', 'user')
+        fields = ('id', 'name', 'time', 'noteType', 'noteContent', 'noteSkeleton', 'user')
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -17,5 +17,5 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 class FileSerializer(serializers.ModelSerializer):
     class Meta:
         model = File
-        fields = ('file', 'remark', 'timestamp')
+        fields = ('file', 'remark', 'timestamp', 'note')
 

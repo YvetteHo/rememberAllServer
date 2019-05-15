@@ -8,6 +8,9 @@ from rest_framework.response import Response
 from django.shortcuts import get_object_or_404, get_list_or_404
 from rest_framework import status
 import uuid
+import datetime
+
+
 from rest_framework.decorators import action
 # Create your views here.
 
@@ -15,26 +18,53 @@ from rest_framework.decorators import action
 class NoteViewSet(viewsets.ModelViewSet):
     queryset = Note.objects.all()
     serializer_class = NoteSerializer
+    print('???')
+
+    def update(self, request, *args, **kwargs):
+        print('update')
+        print(request.data)
+        partial = kwargs.pop('partial', False)
+        instance = self.get_object()
+        print(instance)
+
+        serializer = self.get_serializer(instance, data=request.data, partial=partial)
+        print(serializer)
+        if serializer.is_valid():
+            self.perform_update(serializer)
+        else:
+            print(serializer.errors)
+        return Response(serializer.data)
 
     def create(self, request, *args, **kwargs):
         request_data = request.data
         print(request_data)
-        # 如果是笔记
-        if request_data['id'] == '':
-            new_id = str(uuid.uuid1())
-            request_data['id'] = new_id
-            # request_data['user'] = User.objects.get(pk=request_data['user'])
-            serializer = NoteSerializer(data=request_data)
-            print(serializer)
-            if serializer.is_valid():
-                self.perform_create(serializer)
-                return Response({'status': 'success', 'noteId': new_id})
-            else:
-                print(serializer.errors)
-                return Response({'status': 'fail'})
-
+        # new_id = str(uuid.uuid1())
+        # request_data['id'] = new_id
+        # request_data['user'] = User.objects.get(pk=request_data['user'])
+        serializer = NoteSerializer(data=request_data)
+        print(serializer)
+        if serializer.is_valid():
+            self.perform_create(serializer)
+            return Response({'status': 'success'})
         else:
-            return Response('喵喵喵')
+            print(serializer.errors)
+            return Response({'status': 'fail'})
+        # # 如果是笔记
+        # if request_data['id'] == '':
+        #     new_id = str(uuid.uuid1())
+        #     request_data['id'] = new_id
+        #     # request_data['user'] = User.objects.get(pk=request_data['user'])
+        #     serializer = NoteSerializer(data=request_data)
+        #     print(serializer)
+        #     if serializer.is_valid():
+        #         self.perform_create(serializer)
+        #         return Response({'status': 'success', 'noteId': new_id})
+        #     else:
+        #         print(serializer.errors)
+        #         return Response({'status': 'fail'})
+        #
+        # else:
+        #     return Response('喵喵喵')
     #
 
     # def retrieve(self, request, *args, **kwargs):
@@ -122,12 +152,19 @@ class FileViewSet(viewsets.ModelViewSet):
     # parser_classes = (FileUploadParser,)
 
     def create(self, request, *args, **kwargs):
-        file_serializer = FileSerializer(data=request.data)
-        print(request.data)
+        new_data = request.data
+        new_data['timestamp'] = datetime.datetime.now()
+
+        file_serializer = FileSerializer(data=new_data)
         if file_serializer.is_valid():
+
             file_serializer.save()
             return Response(file_serializer.data, status=status.HTTP_201_CREATED)
         else:
+            print(file_serializer.data)
+
+            print(file_serializer.errors)
+
             return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     # def create(self, request, *args, **kwargs):
     #     # do some stuff with uploaded file

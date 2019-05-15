@@ -17,5 +17,5 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 class FileSerializer(serializers.ModelSerializer):
     class Meta:
         model = File
-        fields = ('file', 'remark', 'timestamp', 'note')
+        fields = ('id', 'file', 'timestamp', 'note')
 

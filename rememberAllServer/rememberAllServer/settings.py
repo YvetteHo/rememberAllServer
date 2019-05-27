@@ -25,7 +25,7 @@ SECRET_KEY = '6ufj%4p)=_7v-w+ex)used0vx%jk!4!m^4mt#4!gw&!_hnr0q^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_swagger',
     'rest_framework.authtoken',
+    'django_cleanup.apps.CleanupConfig',
     'notes'
 ]
 REST_FRAMEWORK = {

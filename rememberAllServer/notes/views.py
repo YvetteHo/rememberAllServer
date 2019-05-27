@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Note, File
+from .models import Note, MyFile
 from rest_framework import viewsets
 from .serializer import NoteSerializer, UserSerializer, FileSerializer
 from rest_framework.response import Response
@@ -9,6 +9,10 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.authtoken.models import Token
 from rest_framework.authentication import TokenAuthentication
 from django.contrib.auth.models import User
+import os
+from django.conf import settings
+from django.http import HttpResponse, Http404
+from django.core.files import File
 import datetime
 
 
@@ -19,12 +23,25 @@ from rest_framework.decorators import action
 class NoteViewSet(viewsets.ModelViewSet):
     queryset = Note.objects.all()
     serializer_class = NoteSerializer
-    permission_classes = (IsAuthenticated,)
-    authentication_classes = (TokenAuthentication,)
+    # permission_classes = (IsAuthenticated,)
+    # authentication_classes = (TokenAuthentication,)
 
     def update(self, request, *args, **kwargs):
         partial = kwargs.pop('partial', False)
         instance = self.get_object()
+        print(instance, instance.id)
+        request.data['id'] = request.data['id'] if 'id' in request.data.keys() else instance.id
+        request.data['name'] = request.data['name'] if 'name' in request.data.keys() else instance.name
+        request.data['time'] = request.data['time'] if 'time' in request.data.keys() else instance.time
+        request.data['noteType'] = request.data['noteType'] \
+            if 'noteType' in request.data.keys() else instance.noteType
+        request.data['noteContent'] = request.data['noteContent'] if 'noteContent' in request.data.keys() else instance.noteContent
+        request.data['noteSkeleton'] = request.data['noteSkeleton'] \
+            if 'noteSkeleton' in request.data.keys() else instance.noteSkeleton
+        request.data['user'] = request.data['user'] if 'user' in request.data.keys() else instance.user.pk
+
+        print(instance, request.data)
+
         serializer = self.get_serializer(instance, data=request.data, partial=partial)
         if serializer.is_valid():
             self.perform_update(serializer)
@@ -33,16 +50,33 @@ class NoteViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
 
     def create(self, request, *args, **kwargs):
-        request_data = request.data
-        print(request_data)
-        serializer = NoteSerializer(data=request_data)
-        print(serializer)
+        new_data = request.data
+        # new_data['timestamp'] = datetime.datetime.now()
+
+        # print(new_data['user'])
+        # user = User.objects.get(pk=new_data['user'])
+        # new_data['user'] = user
+
+        serializer = NoteSerializer(data=new_data)
         if serializer.is_valid():
-            self.perform_create(serializer)
+            serializer.save()
             return Response({'status': 'success'})
         else:
+            print(serializer.data)
+
             print(serializer.errors)
+
             return Response({'status': 'fail'})
+        # request_data = request.data
+        # print(request_data)
+        # serializer = NoteSerializer(data=request_data)
+        # print(serializer)
+        # if serializer.is_valid():
+        #     self.perform_create(serializer)
+        #     return Response({'status': 'success'})
+        # else:
+        #     print(serializer.errors)
+        #     return Response({'status': 'fail'})
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -56,7 +90,7 @@ class UserViewSet(viewsets.ModelViewSet):
             user = User.objects.get(username=request_data['username'])
             if user.check_password(request_data['password']):
                 token = Token.objects.create(user=user)
-                return Response({'status': 'success', 'token': str(token)})
+                return Response({'status': 'success', 'token': str(token), 'pk': user.pk})
             else:
                 return Response({'status': 'fail', 'message': '用户名或密码错误'})
         else:
@@ -77,9 +111,17 @@ class UserViewSet(viewsets.ModelViewSet):
         else:
             user = User.objects.create_user(username=request_data['username'], password=request_data['password'])
             token = Token.objects.create(user=user)
-            return Response({'status': 'success', 'token': str(token)})
+            return Response({'status': 'success', 'token': str(token), 'pk': user.pk})
+
+    def retrieve(self, request, *args, **kwargs):
+        print(request)
+
+        user = User.objects.get(username='Jack')
+        serializer = UserSerializer(user)
+        return Response(serializer.data)
 
     def list(self, request, *args, **kwargs):
+        print('喵喵喵')
         if 'Username' in request.headers:
             user_name = request.headers['Username']
             queryset = User.objects.all()
@@ -95,13 +137,13 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class FileViewSet(viewsets.ModelViewSet):
-    queryset = File.objects.all()
+    queryset = MyFile.objects.all()
     serializer_class = FileSerializer
     # parser_classes = (FileUploadParser,)
 
     def create(self, request, *args, **kwargs):
         new_data = request.data
-        new_data['timestamp'] = datetime.datetime.now()
+        # new_data['timestamp'] = datetime.datetime.now()
 
         file_serializer = FileSerializer(data=new_data)
         if file_serializer.is_valid():
@@ -114,6 +156,30 @@ class FileViewSet(viewsets.ModelViewSet):
             print(file_serializer.errors)
 
             return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    @action(methods=['get'], detail=True)
+    def download(self, request, pk=None):
+
+        file_path = os.path.join(settings.MEDIA_ROOT, '278CE437-8A6F-48BA-BE21-A3A5126FA7B4.jpg')
+
+        with open(file_path, 'rb') as f:
+            file = File(f)
+            response = HttpResponse(file.chunks(),
+                                    content_type='APPLICATION/OCTET-STREAM')
+            response['Content-Disposition'] = 'attachment; filename=' + file_path
+            response['Content-Length'] = os.path.getsize(file_path)
+
+        return response
+    #
+    # def download(self, request, pk=None):
+    #
+    #     file_path = os.path.join(settings.MEDIA_ROOT, '')
+    #     if os.path.exists(file_path):
+    #         with open(file_path, 'rb') as fh:
+    #             response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
+    #             response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+    #             return response
+    #     raise Http404
     # def create(self, request, *args, **kwargs):
     #     # do some stuff with uploaded file
     #     return Response(status=204)

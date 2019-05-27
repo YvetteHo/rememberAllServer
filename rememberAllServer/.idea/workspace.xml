@@ -4,12 +4,12 @@
     <list default="true" id="5523c469-3747-49bf-990d-2c8216c871db" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/migrations/0001_initial.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/serializer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rememberAllServer/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/rememberAllServer/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rememberAllServer/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/rememberAllServer/urls.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +38,7 @@
     <session id="-2117307878">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.13" value="1" />
@@ -46,29 +46,30 @@
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.6" value="1" />
+          <entry key="project.open.time.6" value="2" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="9" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="28" />
+          <entry key="py" value="29" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="28" />
+          <entry key="Python" value="29" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="4912" />
+          <entry key="py" value="6196" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="4912" />
+          <entry key="Python" value="6196" />
         </counts>
       </usages-collector>
     </session>
@@ -78,12 +79,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/notes/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="323">
+              <caret line="17" column="12" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="12" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
-                <marker date="1558501970150" expanded="true" signature="122:189" ph="..." />
-                <marker date="1558501970150" expanded="true" signature="186:189" ph="..." />
               </folding>
             </state>
           </provider>
@@ -104,8 +103,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rememberAllServer/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="48" column="1" lean-forward="true" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
+            <state relative-caret-position="383">
+              <caret line="41" column="31" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rememberAllServer/wsgi.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
+              <folding>
+                <element signature="e#233#242#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -113,13 +124,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/notes/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="60" column="52" lean-forward="true" selection-start-line="60" selection-start-column="52" selection-end-line="60" selection-end-column="52" />
+            <state relative-caret-position="200">
+              <caret line="162" column="95" selection-start-line="162" selection-start-column="95" selection-end-line="162" selection-end-column="95" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
-                <marker date="1558524287026" expanded="true" signature="1822:2672" ph="..." />
-                <marker date="1558524287026" expanded="true" signature="2668:2672" ph="..." />
-                <marker date="1558524287026" expanded="true" signature="3153:3158" ph="..." />
+                <marker date="1558975959779" expanded="true" signature="3393:4258" ph="..." />
+                <marker date="1558975959779" expanded="true" signature="4254:4258" ph="..." />
+                <marker date="1558975959779" expanded="true" signature="4960:4966" ph="..." />
+                <marker date="1558975959779" expanded="true" signature="4961:4966" ph="..." />
               </folding>
             </state>
           </provider>
@@ -128,8 +140,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/notes/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+            <state relative-caret-position="494">
+              <caret line="26" column="1" lean-forward="true" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -149,8 +161,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rememberAllServer/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="20" selection-start-line="20" selection-end-line="24" selection-end-column="1" />
+            <state relative-caret-position="361">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
               <folding>
                 <element signature="e#642#674#0" expanded="true" />
               </folding>
@@ -161,11 +173,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/notes/serializer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" selection-start-line="5" selection-end-line="9" />
+            <state relative-caret-position="418">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
-                <marker date="1558501966636" expanded="true" signature="517:522" ph="..." />
+                <marker date="1558974497371" expanded="true" signature="497:502" ph="..." />
               </folding>
             </state>
           </provider>
@@ -182,6 +194,8 @@
       <find>user</find>
       <find>permiss</find>
       <find>My</find>
+      <find>context</find>
+      <find>myuser</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -192,12 +206,12 @@
       <list>
         <option value="$PROJECT_DIR$/notes/admin.py" />
         <option value="$PROJECT_DIR$/notes/apps.py" />
-        <option value="$PROJECT_DIR$/rememberAllServer/urls.py" />
-        <option value="$PROJECT_DIR$/notes/serializer.py" />
+        <option value="$PROJECT_DIR$/rememberAllServer/settings.py" />
         <option value="$PROJECT_DIR$/notes/models.py" />
+        <option value="$PROJECT_DIR$/notes/serializer.py" />
+        <option value="$PROJECT_DIR$/rememberAllServer/urls.py" />
         <option value="$PROJECT_DIR$/notes/urls.py" />
         <option value="$PROJECT_DIR$/notes/views.py" />
-        <option value="$PROJECT_DIR$/rememberAllServer/settings.py" />
       </list>
     </option>
   </component>
@@ -228,18 +242,28 @@
             <path>
               <item name="rememberAllServer" type="b2602c69:ProjectViewProjectNode" />
               <item name="rememberAllServer" type="462c0819:PsiDirectoryNode" />
-              <item name="notes" type="462c0819:PsiDirectoryNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="rememberAllServer" type="b2602c69:ProjectViewProjectNode" />
               <item name="rememberAllServer" type="462c0819:PsiDirectoryNode" />
               <item name="notes" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="rememberAllServer" type="b2602c69:ProjectViewProjectNode" />
               <item name="rememberAllServer" type="462c0819:PsiDirectoryNode" />
               <item name="rememberAllServer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rememberAllServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rememberAllServer" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rememberAllServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rememberAllServer" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="image" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -310,12 +334,12 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17002882" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17507204" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.20345253" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.20345253" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -347,9 +371,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rememberAllServer/wsgi.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/notes/migrations/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -370,24 +391,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/notes/migrations/0003_myuser.py">
+    <entry file="file://$PROJECT_DIR$/rememberAllServer/wsgi.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="171">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
           <folding>
-            <element signature="e#47#79#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/notes/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-            <marker date="1558501970150" expanded="true" signature="122:189" ph="..." />
-            <marker date="1558501970150" expanded="true" signature="186:189" ph="..." />
+            <element signature="e#233#242#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -399,21 +408,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/notes/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="12" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notes/migrations/0003_myuser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="e#47#79#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rememberAllServer/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="41" column="31" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/notes/serializer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" selection-start-line="5" selection-end-line="9" />
+        <state relative-caret-position="418">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
-            <marker date="1558501966636" expanded="true" signature="517:522" ph="..." />
+            <marker date="1558974497371" expanded="true" signature="497:502" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rememberAllServer/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" selection-start-line="20" selection-end-line="24" selection-end-column="1" />
+        <state relative-caret-position="361">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
           <folding>
             <element signature="e#642#674#0" expanded="true" />
           </folding>
@@ -422,30 +458,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/notes/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+        <state relative-caret-position="494">
+          <caret line="26" column="1" lean-forward="true" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rememberAllServer/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="48" column="1" lean-forward="true" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/notes/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="60" column="52" lean-forward="true" selection-start-line="60" selection-start-column="52" selection-end-line="60" selection-end-column="52" />
+        <state relative-caret-position="200">
+          <caret line="162" column="95" selection-start-line="162" selection-start-column="95" selection-end-line="162" selection-end-column="95" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-            <marker date="1558524287026" expanded="true" signature="1822:2672" ph="..." />
-            <marker date="1558524287026" expanded="true" signature="2668:2672" ph="..." />
-            <marker date="1558524287026" expanded="true" signature="3153:3158" ph="..." />
+            <marker date="1558975959779" expanded="true" signature="3393:4258" ph="..." />
+            <marker date="1558975959779" expanded="true" signature="4254:4258" ph="..." />
+            <marker date="1558975959779" expanded="true" signature="4960:4966" ph="..." />
+            <marker date="1558975959779" expanded="true" signature="4961:4966" ph="..." />
           </folding>
         </state>
       </provider>

@@ -1,15 +1,15 @@
 from rest_framework import serializers
-from .models import Note, File
+from .models import Note, MyFile
 from django.contrib.auth.models import User
 
 
-class NoteSerializer(serializers.HyperlinkedModelSerializer):
+class NoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Note
         fields = ('id', 'name', 'time', 'noteType', 'noteContent', 'noteSkeleton', 'user')
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('username', 'password')
@@ -17,6 +17,6 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
 class FileSerializer(serializers.ModelSerializer):
     class Meta:
-        model = File
+        model = MyFile
         fields = ('id', 'file', 'note')
 

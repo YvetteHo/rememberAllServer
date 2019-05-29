@@ -78,6 +78,23 @@ class NoteViewSet(viewsets.ModelViewSet):
         #     print(serializer.errors)
         #     return Response({'status': 'fail'})
 
+    def list(self, request, *args, **kwargs):
+        if 'Username' in request.headers:
+            user_name = request.headers['Username']
+            user = User.objects.get(username=user_name)
+            notes = user.notes.all()
+            serializer = NoteSerializer(notes, many=True, context={'request': self.request})
+
+            return Response(serializer.data)
+        else:
+            print('mmm')
+            notes = Note.objects.all()
+            # print(Note.objects.values('noteType').annotate())
+            serializer = NoteSerializer(notes, many=True, context={'request': self.request})
+            return Response(serializer.data)
+        # else:
+        #     return Response('mmm')
+
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
@@ -113,32 +130,34 @@ class UserViewSet(viewsets.ModelViewSet):
             token = Token.objects.create(user=user)
             return Response({'status': 'success', 'token': str(token), 'pk': user.pk})
 
-    def retrieve(self, request, *args, **kwargs):
-        print(request)
+    # def retrieve(self, request, *args, **kwargs):
+    #     print(request)
+    #
+    #     user = User.objects.get(username='Jack')
+    #     serializer = UserSerializer(user)
+    #     return Response(serializer.data)
 
-        user = User.objects.get(username='Jack')
-        serializer = UserSerializer(user)
-        return Response(serializer.data)
-
-    def list(self, request, *args, **kwargs):
-        print('喵喵喵')
-        if 'Username' in request.headers:
-            user_name = request.headers['Username']
-            queryset = User.objects.all()
-            user = get_object_or_404(queryset, pk=user_name)
-
-            notes = user.notes.all()
-            serializer = NoteSerializer(notes, many=True, context={'request': self.request})
-            return Response(serializer.data)
-        else:
-            users = User.objects.all()
-            serializer = UserSerializer(users, many=True, context={'request': self.request})
-            return Response(serializer.data)
+    # def list(self, request, *args, **kwargs):
+    #     print('喵喵喵')
+    #     if 'Username' in request.headers:
+    #         user_name = request.headers['Username']
+    #         queryset = User.objects.all()
+    #         user = get_object_or_404(queryset, pk=user_name)
+    #
+    #         notes = user.notes.all()
+    #         serializer = NoteSerializer(notes, many=True, context={'request': self.request})
+    #         return Response(serializer.data)
+    #     else:
+    #         users = User.objects.all()
+    #         serializer = UserSerializer(users, many=True, context={'request': self.request})
+    #         return Response(serializer.data)
 
 
 class FileViewSet(viewsets.ModelViewSet):
     queryset = MyFile.objects.all()
     serializer_class = FileSerializer
+    # permission_classes = (IsAuthenticated,)
+    # authentication_classes = (TokenAuthentication,)
     # parser_classes = (FileUploadParser,)
 
     def create(self, request, *args, **kwargs):
@@ -157,20 +176,20 @@ class FileViewSet(viewsets.ModelViewSet):
 
             return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    @action(methods=['get'], detail=True)
-    def download(self, request, pk=None):
-
-        file_path = os.path.join(settings.MEDIA_ROOT, '278CE437-8A6F-48BA-BE21-A3A5126FA7B4.jpg')
-
-        with open(file_path, 'rb') as f:
-            file = File(f)
-            response = HttpResponse(file.chunks(),
-                                    content_type='APPLICATION/OCTET-STREAM')
-            response['Content-Disposition'] = 'attachment; filename=' + file_path
-            response['Content-Length'] = os.path.getsize(file_path)
-
-        return response
+    # @action(methods=['get'], detail=True)
+    # def download(self, request, pk=None):
     #
+    #     file_path = os.path.join(settings.MEDIA_ROOT, '278CE437-8A6F-48BA-BE21-A3A5126FA7B4.jpg')
+    #
+    #     with open(file_path, 'rb') as f:
+    #         file = File(f)
+    #         response = HttpResponse(file,
+    #                                 content_type='APPLICATION/OCTET-STREAM')
+    #         response['Content-Disposition'] = 'attachment; filename=' + file_path
+    #         response['Content-Length'] = os.path.getsize(file_path)
+    #
+    #     return response
+    # #
     # def download(self, request, pk=None):
     #
     #     file_path = os.path.join(settings.MEDIA_ROOT, '')

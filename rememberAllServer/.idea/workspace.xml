@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5523c469-3747-49bf-990d-2c8216c871db" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/278CE437-8A6F-48BA-BE21-A3A5126FA7B4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/2bdd9370-7655-11e9-8d22-25264e2270d3.aac" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/6225399F-40F6-4AE8-8B97-0C5B09D52758.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/C652F7BB-A98F-4ADB-ACFE-CA594C0D2595.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/a3683d20-8099-11e9-9ba5-33d6c28c12cd.aac" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/notes/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rememberAllServer/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/rememberAllServer/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rememberAllServer/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/rememberAllServer/urls.py" afterDir="false" />
-    </list>
+    <list default="true" id="5523c469-3747-49bf-990d-2c8216c871db" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -333,12 +322,12 @@
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17723343" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17723343" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.20345253" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.20345253" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
